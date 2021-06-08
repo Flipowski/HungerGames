@@ -23,11 +23,11 @@ public class ArenaController {
             else {
                 System.out.println("There were no fights today");
             }
-        } while (arena.contestantlist.size() > 1);
-        System.out.println("There is only " + arena.contestantlist.size() + " contestant left...");
+        } while (arena.contestantList.size() > 1);
+        System.out.println("There is only " + arena.contestantList.size() + " contestant left...");
         President snow = President.getSnow();
-        snow.snowKills(arena.contestantlist.get(r.nextInt(arena.contestantlist.size())), arena);
-        System.out.println("There are " + arena.contestantlist.size() + " contestants left...");
+        snow.snowKills(arena.contestantList.get(r.nextInt(arena.contestantList.size())), arena);
+        System.out.println("There are " + arena.contestantList.size() + " contestants left...");
     }
 
     public boolean meet(){

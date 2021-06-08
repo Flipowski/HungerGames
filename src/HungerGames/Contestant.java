@@ -8,6 +8,7 @@ public class Contestant {
     double defense;
     double hit;
     String gender;
+    BattleItem battleItem;
 
     public Contestant(String gender){
         this.gender = gender;
@@ -17,19 +18,25 @@ public class Contestant {
         contestant.health -= this.hit;
     }
 
+    public void pickUpBattleItem(Arena arena) {
+        battleItem = arena.battleItemList.get(r.nextInt(arena.battleItemList.size()));
+        {
+            if (battleItem instanceof Weapon) {
+                System.out.println("Contestant picks up weapon. Old attack: " + this.attack + ", New attack: " + (this.attack * battleItem.attackBonus));
+                this.attack *= battleItem.attackBonus;
+                arena.battleItemList.remove(battleItem);
+            } else if (battleItem instanceof Armor) {
+                System.out.println("Contestant picks up armor. Old defense: " + this.defense + ", New defense: " + (this.defense * battleItem.defenseBonus));
+                this.defense *= battleItem.defenseBonus;
+                arena.battleItemList.remove(battleItem);
+            } else {
+                System.out.println("There are no more battle items available");
+            }
+        }
+    }
+
+
     public boolean isAlive(){
         return this.health > 0;
     }
-
-    public double getHealth(){
-        return health;
-    }
-/*    public Contestant( String contestantNumber, int health, int attack, int defense, String gender){
-        this.contestantNumber = contestantNumber;
-        this.health = health;
-        this.attack = attack;
-        this.defense = defense;
-        this.gender = gender;
-    }*/
-
 }

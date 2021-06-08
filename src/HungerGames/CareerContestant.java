@@ -2,7 +2,7 @@ package HungerGames;
 import java.util.*;
 
 public class CareerContestant extends Contestant {
-    private String section = "career";
+    private final String section = "career";
 
     public CareerContestant(String gender){
         super(gender);

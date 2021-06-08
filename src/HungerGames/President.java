@@ -13,6 +13,6 @@ public class President {
 
     public void snowKills(Contestant contestant, Arena arena){
         System.out.println("President " + name + " kills the last contestant!");
-        arena.contestantlist.remove(contestant);
+        arena.contestantList.remove(contestant);
     }
 }
